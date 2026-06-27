@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLUX — Boutique Officielle</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+bg: '#0A0A0C',
+surface: '#13141699',
+volt: '#D7FF3F',
+'volt-dim': '#A8C730',
+ink: '#F3F3F1',
+muted: '#9A9AA1',
+},
+fontFamily: {
+display: ['Anton', 'sans-serif'],
+body: ['Inter', 'sans-serif'],
+mono: ['JetBrains Mono', 'monospace'],
+}
+}
+}
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-bg text-ink font-body antialiased overflow-x-hidden">
+
+<!-- NAV -->
+<nav class="fixed top-0 inset-x-0 z-40 glass">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-volt">
+<path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/>
+</svg>
+<span class="font-display text-lg tracking-wide">FLUX</span>
+</div>
+<button id="hud-toggle-nav" class="relative flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+</svg>
+<span id="nav-cart-count" class="font-mono text-xs">0</span>
+</button>
+</div>
+</nav>
+
+<!-- HERO -->
+<header id="home" class="relative min-h-[100vh] flex items-center justify-center px-6 overflow-hidden">
+<div class="absolute inset-0 bg-grid"></div>
+<div class="orb w-[480px] h-[480px] bg-volt top-[-120px] left-[-120px]"></div>
+<div class="orb w-[380px] h-[380px] bg-fuchsia-500 bottom-[-100px] right-[-80px] opacity-20"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg"></div>
+
+<div class="relative z-10 max-w-3xl text-center flex flex-col items-center">
+<div class="mb-6 w-16 h-16 rounded-2xl glass flex items-center justify-center">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-volt">
+<path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/>
+</svg>
+</div>
+
+<span class="font-mono text-xs tracking-[0.25em] text-volt uppercase mb-4">Boutique officielle</span>
+
+<h1 class="font-display text-[clamp(2.4rem,7vw,5rem)] leading-[1.02] uppercase mb-5">
+Équipe-toi pour<br><span class="text-volt">la victoire</span>
+</h1>
+
+<p class="text-muted text-base sm:text-lg max-w-md mb-9">
+Trois essentiels. Zéro friction. Pas de compte, pas d'attente — tu choisis, tu commandes.
+</p>
+
+<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})"
+class="btn-volt font-semibold px-8 py-3.5 rounded-full text-sm uppercase tracking-wide flex items-center gap-2">
+Démarrer
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+<path d="M12 5v14M19 12l-7 7-7-7"/>
+</svg>
+</button>
+</div>
+
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted bounce-y">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+<path d="M12 5v14M19 12l-7 7-7-7"/>
+</svg>
+</div>
+</header>
+
+<!-- SHOP -->
+<section id="shop" class="relative py-24 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-14 reveal">
+<span class="font-mono text-xs tracking-[0.25em] text-volt uppercase">03 produits disponibles</span>
+<h2 class="font-display text-[clamp(2rem,5vw,3.2rem)] uppercase mt-3">La sélection</h2>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<!-- PRODUIT 1 : TECH70 -->
+<article class="reveal glass-card rounded-3xl p-7 flex flex-col">
+<div class="flex items-center justify-between mb-5">
+<span class="font-mono text-[11px] tracking-widest uppercase text-volt bg-volt/10 border border-volt/30 px-2.5 py-1 rounded-full">Équipement</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-muted">
+<rect x="3" y="3" width="18" height="18" rx="3"/>
+<path d="M3 9h18M9 21V9"/>
+</svg>
+</div>
+
+<h3 class="font-display text-2xl uppercase mb-2">Tech70</h3>
+<p class="text-muted text-sm mb-5">Le pack technique de référence pour la compétition — calibré pour la précision, pensé pour durer.</p>
+
+<ul class="space-y-2.5 mb-7 text-sm">
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Latence ultra-faible certifiée</li>
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Confort optimisé longue session</li>
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Compatible toutes plateformes</li>
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Garantie constructeur 2 ans</li>
+</ul>
+
+<div class="mt-auto">
+<div class="flex items-end justify-between mb-4">
+<span class="font-mono text-2xl font-bold">69,99&nbsp;€</span>
+<span class="text-xs text-muted">unité unique</span>
+</div>
+<button id="btn-tech70" onclick="toggleTech70()"
+class="btn-volt w-full font-semibold py-3 rounded-full text-sm uppercase tracking-wide">
+Acheter
+</button>
+</div>
+</article>
+
+<!-- PRODUIT 2 : BASICFIT -->
+<article class="reveal glass-card rounded-3xl p-7 flex flex-col">
+<div class="flex items-center justify-between mb-5">
+<span class="font-mono text-[11px] tracking-widest uppercase text-volt bg-volt/10 border border-volt/30 px-2.5 py-1 rounded-full">Abonnement Ultimate</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-muted">
+<path d="M6.5 6.5h11v11h-11z"/>
+<path d="M3 9.5v5M21 9.5v5"/>
+</svg>
+</div>
+
+<h3 class="font-display text-2xl uppercase mb-2">Basicfit</h3>
+<p class="text-muted text-sm mb-5">Accès illimité, coaching inclus. La forme ne s'arrête jamais — ton abonnement non plus.</p>
+
+<ul class="space-y-2.5 mb-6 text-sm">
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Accès illimité à toutes les salles</li>
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Cours collectifs inclus</li>
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Coaching personnalisé en option</li>
+</ul>
+
+<div class="flex gap-2 mb-6 bg-white/5 p-1 rounded-full">
+<button id="seg-1m" onclick="selectDuration('1m')" class="seg-btn active flex-1 py-2 rounded-full text-xs font-semibold uppercase tracking-wide">1 Mois</button>
+<button id="seg-1y" onclick="selectDuration('1y')" class="seg-btn flex-1 py-2 rounded-full text-xs font-semibold uppercase tracking-wide">1 An</button>
+</div>
+
+<div class="mt-auto">
+<div class="flex items-end justify-between mb-4">
+<span id="basicfit-price" class="font-mono text-2xl font-bold">29,99&nbsp;€</span>
+<span id="basicfit-period" class="text-xs text-muted">par mois</span>
+</div>
+<button id="btn-basicfit" onclick="toggleBasicfit()"
+class="btn-volt w-full font-semibold py-3 rounded-full text-sm uppercase tracking-wide">
+S'abonner
+</button>
+</div>
+</article>
+
+<!-- PRODUIT 3 : RED BULL -->
+<article class="reveal glass-card rounded-3xl p-7 flex flex-col">
+<div class="flex items-center justify-between mb-5">
+<span class="font-mono text-[11px] tracking-widest uppercase text-volt bg-volt/10 border border-volt/30 px-2.5 py-1 rounded-full">Énergie</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-muted">
+<path d="M8 2h8l1 6-3 3v9H10v-9L7 8z"/>
+</svg>
+</div>
+
+<h3 class="font-display text-2xl uppercase mb-2">Red Bull</h3>
+<p class="text-muted text-sm mb-5">Le boost qui ne lâche pas en pleine session. Stocke-en, t'en auras besoin.</p>
+
+<ul class="space-y-2.5 mb-7 text-sm">
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Effet immédiat, longue tenue</li>
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Format canette 25cl</li>
+<li class="flex items-start gap-2"><span class="text-volt mt-0.5">✓</span>Achat en quantité illimitée</li>
+</ul>
+
+<div class="flex items-center justify-between mb-6 bg-white/5 rounded-full p-1.5">
+<button onclick="changeQty(-1)" class="stepper-btn w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold">−</button>
+<span id="redbull-qty" class="font-mono text-base w-10 text-center">1</span>
+<button onclick="changeQty(1)" class="stepper-btn w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold">+</button>
+</div>
+
+<div class="mt-auto">
+<div class="flex items-end justify-between mb-4">
+<span id="redbull-price" class="font-mono text-2xl font-bold">1,99&nbsp;€</span>
+<span class="text-xs text-muted">/ unité</span>
+</div>
+<button onclick="addRedbull()"
+class="btn-volt w-full font-semibold py-3 rounded-full text-sm uppercase tracking-wide">
+Acheter
+</button>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative px-6 pb-10">
+<div class="max-w-7xl mx-auto">
+<div class="glass rounded-3xl px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-volt/10 border border-volt/30 flex items-center justify-center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D7FF3F" stroke-width="2">
+<path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/>
+<path d="M9 12l2 2 4-4"/>
+</svg>
+</div>
+<div>
+<p class="font-semibold text-sm">Paiement 100% sécurisé</p>
+<p class="text-muted text-xs">Chiffrement de bout en bout sur chaque commande</p>
+</div>
+</div>
+
+<div class="flex items-center gap-3">
+<span class="font-mono text-[11px] tracking-widest text-muted border border-white/10 rounded-md px-2.5 py-1.5">VISA</span>
+<span class="font-mono text-[11px] tracking-widest text-muted border border-white/10 rounded-md px-2.5 py-1.5">MASTERCARD</span>
+<span class="font-mono text-[11px] tracking-widest text-muted border border-white/10 rounded-md px-2.5 py-1.5">REVOLUT</span>
+<span class="font-mono text-[11px] tracking-widest text-muted border border-white/10 rounded-md px-2.5 py-1.5">AMEX</span>
+</div>
+</div>
+
+<div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-muted text-xs pb-4">
+<span>© 2026 FLUX. Tous droits réservés.</span>
+<span>Démo front-end — aucune transaction réelle n'est effectuée.</span>
+</div>
+</div>
+</footer>
+
+<!-- HUD PANIER -->
+<div id="cart-hud" class="fixed bottom-5 right-5 z-50 glass rounded-2xl w-72 overflow-hidden transition-all duration-300">
+<button onclick="toggleHud()" class="w-full flex items-center justify-between px-5 py-4">
+<div class="flex items-center gap-2.5">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D7FF3F" stroke-width="2">
+<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+</svg>
+<span class="text-sm font-semibold">Ton panier</span>
+</div>
+<span id="hud-total" class="font-mono text-sm text-volt">0,00 €</span>
+</button>
+
+<div id="hud-body" class="hidden px-5 pb-5">
+<div id="hud-items" class="space-y-2 text-sm text-muted mb-4">
+<p class="text-xs italic">Aucun article pour le moment.</p>
+</div>
+<button onclick="checkout()" id="checkout-btn" disabled
+class="btn-volt w-full font-semibold py-2.5 rounded-full text-xs uppercase tracking-wide">
+Valider la commande
+</button>
+</div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast fixed top-20 right-5 z-[60] opacity-0 translate-y-[-10px] pointer-events-none">
+<div class="glass rounded-xl px-5 py-3 flex items-center gap-2.5 border border-volt/30">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D7FF3F" stroke-width="2.5">
+<path d="M20 6L9 17l-5-5"/>
+</svg>
+<span id="toast-text" class="text-sm"></span>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
