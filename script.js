@@ -1,4 +1,5 @@
-const prices = { tech70: 69.99, basicfit: { '1m': 29.99, '1y': 249.99 }, redbull: 1.99 };
+const prices = { tech70: 29.90, basicfit: { '1m': 14.90, '1y': 79.90 }, redbull: 1.00 };
+
 
 const state = {
 tech70: false,
